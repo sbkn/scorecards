@@ -1,0 +1,26 @@
+{
+  "saveScorecard": {
+	"handler": "saveScorecard.index",
+	"description": "Save a scorecard to S3",
+	"events": [
+	  {
+		"http": {
+		  "path": "scorecards",
+		  "method": "post",
+		  "integration": "lambda",
+		  "response": {
+			"statusCodes": {
+			  "200": {
+				"pattern": ""
+			  },
+			  "500": {
+				"pattern": ".*\"success\":false.*",
+				"template": "$input.path('$.errorMessage')"
+			  }
+			}
+		  }
+		}
+	  }
+	]
+  }
+}

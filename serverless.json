@@ -1,0 +1,31 @@
+{
+  "service": "scorecards",
+  "frameworkVersion": ">=1.17.0",
+  "plugins": [
+    "serverless-webpack",
+    "serverless-aws-alias"
+  ],
+  "provider": {
+    "name": "aws",
+    "profile": "appelblim-dev",
+    "runtime": "nodejs6.10",
+    "memory": 128,
+    "timeout": 5,
+    "stage": "${opt:stage}",
+    "region": "eu-west-1",
+    "webACLId": "${cf:WafSecurity.AllowWhitelistedIpsAcl}",
+    "environment": {
+      "ENV": "${self:provider.stage}",
+      "BUCKET_SCORECARDS": "${self:service}_${self:provider.stage}"
+    },
+    "iamRoleStatements": "${file(serverless.iamRoleStatements.json)}"
+  },
+  "custom": {
+    "webpackIncludeModules": true
+  },
+  "functions": "${file(serverless.functions.json)}",
+  "resources": {
+    "Resources": "${file(serverless.resources.json)}",
+    "Outputs": {}
+  }
+}

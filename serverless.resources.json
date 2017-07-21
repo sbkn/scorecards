@@ -1,0 +1,17 @@
+{
+  "ScorecardsS3": {
+	"Type": "AWS::S3::Bucket",
+	"DeletionPolicy": "Delete",
+	"Properties": {
+	  "BucketName": "${self:provider.environment.BUCKET_SCORECARDS}",
+	  "LifecycleConfiguration": {
+		"Rules": [
+		  {
+			"ExpirationInDays": 356,
+			"Status": "Enabled"
+		  }
+		]
+	  }
+	}
+  }
+}

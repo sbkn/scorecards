@@ -1,0 +1,93 @@
+{
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true,
+	"mocha": true
+  },
+  "rules": {
+    "quotes": [2, "double"],
+    "strict": [2, "never"],
+	"object-curly-spacing": [
+	  0
+	],
+	"no-tabs": [
+	  0
+	],
+	"block-spacing": [
+	  0
+	],
+	"indent": [
+	  2,
+	  "tab"
+	],
+	"padded-blocks": [
+	  0
+	],
+	"arrow-parens": [
+	  0
+	],
+	"no-underscore-dangle": [
+	  0
+	],
+	"comma-dangle": [
+	  2,
+	  "never"
+	],
+	"import/no-extraneous-dependencies": [
+	  "error",
+	  {
+		"peerDependencies": false
+	  }
+	],
+	"import/extensions": [
+	  0
+	],
+	"no-plusplus": [
+	  0
+	],
+	"no-restricted-syntax": [
+	  0
+	],
+	"react/jsx-space-before-closing": [
+	  0
+	],
+	"import/no-named-as-default": [
+	  0
+	],
+	"react/jsx-indent": [
+	  2,
+	  "tab"
+	],
+	"consistent-return": [
+	  1
+	],
+	"react/jsx-first-prop-new-line": [
+	  0
+	],
+	"react/jsx-indent-props": [
+	  2,
+	  "tab"
+	],
+	"react/forbid-prop-types": [1],
+	"no-confusing-arrow": [2, {"allowParens": true}],
+    "valid-jsdoc": 1,
+    "eqeqeq": 2,
+    "no-eval": 2,
+    "no-class-assign": 0,
+	"prefer-const": 2,
+	"no-console": 0,
+    "no-mixed-spaces-and-tabs": 0,
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+	"eslint:recommended",
+	"airbnb"
+  ]
+}

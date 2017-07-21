@@ -1,0 +1,11 @@
+verbose: false
+instrumentation:
+    root: .
+    extensions:
+        - .es6
+    include-all-sources: true
+    es-modules: true
+reporting:
+    reports:
+        - html
+    dir: ./coverage

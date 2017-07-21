@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "definitions": {},
+  "id": "https://idleon.com/example.json",
+  "properties": {
+	"courseName": {
+	  "description": "f.e. Old Course",
+	  "maxLength": 50,
+	  "type": "string"
+	},
+	"date": {
+	  "description": "f.e. 2014-09-08T08:02:17-05:00, ISO8601, If none given, it will be set to current time.",
+	  "maxLength": 30,
+	  "type": "string",
+	  "format": "date-time"
+	},
+	"notes": {
+	  "description": "random notes.",
+	  "maxLength": 150,
+	  "type": "string"
+	},
+	"scores": {
+	  "items": {
+		"additionalProperties": false,
+		"properties": {
+		  "handicap": {
+			"description": "f.e. -3.5",
+			"type": "number"
+		  },
+		  "playerName": {
+			"description": "f.e. Bubba Watson",
+			"maxLength": 30,
+			"type": "string"
+		  },
+		  "strokes": {
+			"additionalProperties": false,
+			"properties": {
+			  "1": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "2": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "3": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "4": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "5": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "6": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "7": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "8": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "9": {
+				"description": "Number of strokes on this hole",
+				"type": "integer"
+			  },
+			  "10": {
+				"description": "Number of strokes on this hole",
+				"title": "The 10 Schema",
+				"type": "integer"
+			  },
+			  "11": {
+				"description": "Number of strokes on this hole",
+				"title": "The 11 Schema",
+				"type": "integer"
+			  },
+			  "12": {
+				"description": "Number of strokes on this hole",
+				"title": "The 12 Schema",
+				"type": "integer"
+			  },
+			  "13": {
+				"description": "Number of strokes on this hole",
+				"title": "The 13 Schema",
+				"type": "integer"
+			  },
+			  "14": {
+				"description": "Number of strokes on this hole",
+				"title": "The 14 Schema",
+				"type": "integer"
+			  },
+			  "15": {
+				"description": "Number of strokes on this hole",
+				"title": "The 15 Schema",
+				"type": "integer"
+			  },
+			  "16": {
+				"description": "Number of strokes on this hole",
+				"title": "The 16 Schema",
+				"type": "integer"
+			  },
+			  "17": {
+				"description": "Number of strokes on this hole",
+				"title": "The 17 Schema",
+				"type": "integer"
+			  },
+			  "18": {
+				"description": "Number of strokes on this hole",
+				"title": "The 18 Schema",
+				"type": "integer"
+			  }
+			},
+			"required": [
+			  "11",
+			  "10",
+			  "13",
+			  "12",
+			  "15",
+			  "14",
+			  "17",
+			  "16",
+			  "18",
+			  "1",
+			  "3",
+			  "2",
+			  "5",
+			  "4",
+			  "7",
+			  "6",
+			  "9",
+			  "8"
+			],
+			"type": "object"
+		  }
+		},
+		"required": [
+		  "playerName",
+		  "handicap",
+		  "strokes"
+		],
+		"type": "object"
+	  },
+	  "minItems": 1,
+	  "type": "array",
+	  "uniqueItems": true
+	}
+  },
+  "required": [
+	"courseName",
+	"scores"
+  ],
+  "type": "object"
+}
