@@ -12,11 +12,10 @@
     "memory": 128,
     "timeout": 5,
     "stage": "${opt:stage}",
-    "region": "eu-west-1",
-    "webACLId": "${cf:WafSecurity.AllowWhitelistedIpsAcl}",
+    "region": "eu-central-1",
     "environment": {
       "ENV": "${self:provider.stage}",
-      "BUCKET_SCORECARDS": "${self:service}_${self:provider.stage}"
+      "BUCKET_SCORECARDS": "${self:service}-${self:provider.stage}"
     },
     "iamRoleStatements": "${file(serverless.iamRoleStatements.json)}"
   },

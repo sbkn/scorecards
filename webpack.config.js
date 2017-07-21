@@ -23,7 +23,7 @@ module.exports = {
 	},
 	context: path.resolve(__dirname, "./src"),
 	entry: {
-		index: "./index.es6"
+		saveScorecard: "./saveScorecard/index.es6"
 	},
 	output: {
 		path: path.resolve(__dirname, "./dist"),

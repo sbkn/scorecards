@@ -149,6 +149,7 @@
 		"type": "object"
 	  },
 	  "minItems": 1,
+	  "maxItems": 10,
 	  "type": "array",
 	  "uniqueItems": true
 	}
