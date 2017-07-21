@@ -2,13 +2,13 @@ import AWS from "aws-sdk";
 
 export default class S3Handler {
 
-	static saveJsonToS3(data) {
+	static saveJsonToS3(data, year, month) {
 
 		const s3 = new AWS.S3({apiVersion: "2006-03-01", region: "eu-west-1"});
 
 		const params = {
 			Bucket: process.env.BUCKET_SCORECARDS,
-			Key: data.date,
+			Key: `${year}/${month}/${data.date}.json`,
 			Body: data,
 			ContentType: "application/json"
 		};

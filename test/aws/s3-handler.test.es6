@@ -19,11 +19,13 @@ describe("S3Handler", () => {
 	it("should build request correctly", done => {
 
 		const data = {date: "foo"};
+		const year = 2017;
+		const month = 3;
 
 		sandbox.stub(AWS, "S3").callsFake(() => ({
 			putObject: params => {
 
-				expect(params.Key).to.equal(data.date);
+				expect(params.Key).to.equal(`${year}/${month}/${data.date}.json`);
 				expect(params.Bucket).to.equal(process.env.BUCKET_SCORECARDS);
 				expect(params.Body).to.deep.equal(data);
 				expect(params.ContentType).to.deep.equal("application/json");
@@ -36,7 +38,7 @@ describe("S3Handler", () => {
 			}
 		}));
 
-		S3Handler.saveJsonToS3(data)
+		S3Handler.saveJsonToS3(data, year, month)
 			.then(() => {
 				done();
 			})

@@ -13,7 +13,16 @@ export default class SaveScorecard {
 
 		const updatedData = SaveScorecard._addDateIfMissing(data);
 
-		return S3Handler.saveJsonToS3(updatedData);
+		let year;
+		let month;
+		try {
+			year = SaveScorecard._getYear(updatedData);
+			month = SaveScorecard._getMonth(updatedData);
+		} catch (err) {
+			return Promise.reject(err);
+		}
+
+		return S3Handler.saveJsonToS3(updatedData, year, month);
 	}
 
 	/**
@@ -32,5 +41,23 @@ export default class SaveScorecard {
 		}
 
 		return updatedData;
+	}
+
+	static _getYear(data) {
+
+		if (data.date) {
+			return moment(data.date).year();
+		}
+
+		throw new Error("data.date is missing");
+	}
+
+	static _getMonth(data) {
+
+		if (data.date) {
+			return moment(data.date).month() + 1;
+		}
+
+		throw new Error("data.date is missing");
 	}
 }
